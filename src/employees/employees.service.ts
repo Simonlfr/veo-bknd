@@ -11,4 +11,10 @@ export class EmployeesService {
     this.employees.push(newEmployee);
     return newEmployee;
   }
+
+  getChildren(parentId: number): Employee[] {
+    const children = this.employees.filter((e) => e.parentId === parentId);
+    return children;
+  }
+
 }

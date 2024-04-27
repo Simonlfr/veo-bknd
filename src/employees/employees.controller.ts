@@ -18,4 +18,9 @@ export class EmployeesController {
     return this.employeesService.addEmployee(body.name, body.parentId);
   }
 
+  @Get(':parentId/children')
+  getChildren(@Param('parentId', ParseIntPipe) parentId: number): Employee[] {
+    return this.employeesService.getChildren(parentId);
+  }
+
 }
