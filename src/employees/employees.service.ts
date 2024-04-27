@@ -17,4 +17,11 @@ export class EmployeesService {
     return children;
   }
 
+  changeParent(employeeId: number, newParentId: number): Employee | undefined {
+    const employee = this.employees.find((e) => e.id === employeeId);
+    if (employee) {
+      employee.parentId = newParentId;
+    }
+    return employee;
+  }
 }

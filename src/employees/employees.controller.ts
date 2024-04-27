@@ -23,4 +23,11 @@ export class EmployeesController {
     return this.employeesService.getChildren(parentId);
   }
 
+  @Post(':employeeId/change-parent')
+  changeParent(
+    @Param('employeeId') employeeId: number,
+    @Body('newParentId') newParentId: number,
+  ): Employee | undefined {
+    return this.employeesService.changeParent(employeeId, newParentId);
+  }
 }
