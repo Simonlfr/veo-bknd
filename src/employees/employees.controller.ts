@@ -19,8 +19,10 @@ export class EmployeesController {
   }
 
   @Get(':parentId/children')
-  getChildren(@Param('parentId', ParseIntPipe) parentId: number): Employee[] {
-    return this.employeesService.getChildren(parentId);
+  async getChildren(
+    @Param('parentId', ParseIntPipe) parentId: number,
+  ): Promise<Employee[]> {
+    return await this.employeesService.getChildren(parentId);
   }
 
   @Post(':employeeId/change-parent')
